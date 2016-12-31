@@ -13,7 +13,7 @@ Swift 3
 
 ## Installation
 
-Just add the FR76SegmentedCoctrol folder to your project.
+Just add the "MySegment" file to your project.
 
 ## Usage
 
