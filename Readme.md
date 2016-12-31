@@ -13,7 +13,9 @@ Just add the FR76SegmentedCoctrol folder to your project.
 ## Usage
 
 FR76SegmentedCoctrol is subclass of UIControl as replacement of UISgmentedControl. 
+
 create a UIview and assign "MySegment" class
+
      
       override func viewDidLoad() {
         super.viewDidLoad()
