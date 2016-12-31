@@ -33,7 +33,7 @@ create a UIview and assign "MySegment" class
         seg.setupView()}
         
 
-Setup Image position selected and unselected color text and label size as @IBInspectable value
+Setup: Image position, selected/unselected label text color and label size as @IBInspectable value
 
 ![alt tag](https://github.com/fred76/FR76SegmentedCoctrol/blob/master/insp.jpeg)
 
