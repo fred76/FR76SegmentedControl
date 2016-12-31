@@ -13,7 +13,6 @@ Just add the FR76SegmentedCoctrol folder to your project.
 ## Usage
 
 FR76SegmentedCoctrol is subclass of UIControl as replacement of UISgmentedControl. 
-
 create a UIview and assign "MySegment" class
 
      
@@ -29,6 +28,8 @@ create a UIview and assign "MySegment" class
         seg.setupView()}
         
 
+Setup Image position selected and unselected color text and label size as @IBInspectable value
 
+![]({{site.baseurl}}//insp.jpeg)
     
  
