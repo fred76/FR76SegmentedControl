@@ -32,5 +32,5 @@ create a UIview and assign "MySegment" class
 
 Setup Image position selected and unselected color text and label size as @IBInspectable value
 
-![alt tag](https://raw.githubusercontent.com/fred76/FR76SegmentedCoctrol/blob/master/insp.jpeg)
+![alt tag](https://github.com/fred76/FR76SegmentedCoctrol/blob/master/insp.jpeg)
 ![]({{site.baseurl}}/https://github.com/fred76/FR76SegmentedCoctrol/blob/master/insp.jpeg)
