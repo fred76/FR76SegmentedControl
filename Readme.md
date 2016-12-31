@@ -30,6 +30,6 @@ create a UIview and assign "MySegment" class
 
 Setup Image position selected and unselected color text and label size as @IBInspectable value
 
-
+![]({{site.baseurl}}//insp.jpeg)
     
  
