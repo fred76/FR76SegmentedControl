@@ -4,11 +4,11 @@
 
 ![alt tag](https://github.com/fred76/FR76SegmentedCoctrol/blob/master/screenshot.gif)
 
+## Requirements
 
 Xcode V. 8.1
 
 iOS 10.1  
-
 Swift 3
 
 ## Installation
