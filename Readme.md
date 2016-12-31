@@ -1,6 +1,9 @@
 ## FR76SegmentedCoctrol
 
-###
+## Screenshot
+
+![alt tag](https://github.com/fred76/FR76SegmentedCoctrol/blob/master/screenshot.gif)
+
 
 Xcode V. 8.1
 
@@ -33,4 +36,5 @@ create a UIview and assign "MySegment" class
 Setup Image position selected and unselected color text and label size as @IBInspectable value
 
 ![alt tag](https://github.com/fred76/FR76SegmentedCoctrol/blob/master/insp.jpeg)
-![]({{site.baseurl}}/https://github.com/fred76/FR76SegmentedCoctrol/blob/master/insp.jpeg)
+
+
