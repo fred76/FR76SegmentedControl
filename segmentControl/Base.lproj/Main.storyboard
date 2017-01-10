@@ -50,6 +50,18 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="imageTopInset">
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                        <real key="value" value="29"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentBorderColor">
+                                        <color key="value" red="0.75461715460000001" green="0.21210017789999999" blue="0.14840260999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="segAct:" destination="BYZ-38-t0r" eventType="valueChanged" id="fYz-Qf-mI8"/>
@@ -76,7 +88,7 @@
                                         <color key="value" red="1" green="0.124357619" blue="0.14289353830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="imageTopInset">
-                                        <real key="value" value="40"/>
+                                        <real key="value" value="45"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="imageSize">
                                         <real key="value" value="80"/>
@@ -84,13 +96,66 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="labelHeight">
                                         <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="seg2Act:" destination="BYZ-38-t0r" eventType="valueChanged" id="HKz-tw-f5P"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaN-F8-u5R" customClass="MySegment" customModule="segmentControl" customModuleProvider="target">
+                                <rect key="frame" x="40" y="370" width="256" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="Ydo-sm-KFk"/>
+                                    <constraint firstAttribute="height" constant="128" id="tlX-cp-6ae"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLabelColor">
+                                        <color key="value" red="0.9896442835" green="1" blue="0.1808526053" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="unselectedLabelColor">
+                                        <color key="value" red="0.1652920302" green="1" blue="0.10951652940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.124357619" blue="0.14289353830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageTopInset">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageSize">
+                                        <real key="value" value="80"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="labelHeight">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                        <real key="value" value="64"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="seg2Act:" destination="BYZ-38-t0r" eventType="valueChanged" id="9p7-ww-RPI"/>
+                                    <action selector="seg3Act:" destination="BYZ-38-t0r" eventType="valueChanged" id="ji2-BH-0Ap"/>
+                                </connections>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1p-QG-Eu4">
-                                <rect key="frame" x="40" y="406" width="295" height="87"/>
+                                <rect key="frame" x="40" y="598" width="295" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -99,13 +164,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lwx-SJ-2Vb" firstAttribute="top" secondItem="pDi-J2-0T8" secondAttribute="bottom" constant="45" id="4xe-CK-G2v"/>
-                            <constraint firstItem="u1p-QG-Eu4" firstAttribute="top" secondItem="lwx-SJ-2Vb" secondAttribute="bottom" constant="84" id="5b6-DI-gbi"/>
                             <constraint firstItem="lwx-SJ-2Vb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="K6U-jQ-Nk2"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="u1p-QG-Eu4" secondAttribute="bottom" constant="174" id="OI6-8k-zlG"/>
+                            <constraint firstItem="kaN-F8-u5R" firstAttribute="top" secondItem="lwx-SJ-2Vb" secondAttribute="bottom" constant="48" id="KW2-x0-job"/>
+                            <constraint firstItem="u1p-QG-Eu4" firstAttribute="top" secondItem="kaN-F8-u5R" secondAttribute="bottom" constant="100" id="Ky8-dO-Gr1"/>
                             <constraint firstItem="pDi-J2-0T8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="29" id="SEn-tt-aBD"/>
                             <constraint firstItem="u1p-QG-Eu4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="Uby-FH-Tri"/>
                             <constraint firstAttribute="trailing" secondItem="pDi-J2-0T8" secondAttribute="trailing" constant="16" id="gO0-GY-8rM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u1p-QG-Eu4" secondAttribute="trailing" constant="24" id="icK-NS-7R5"/>
+                            <constraint firstItem="kaN-F8-u5R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="yob-wc-3na"/>
                             <constraint firstItem="pDi-J2-0T8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="zqt-5T-Swb"/>
                         </constraints>
                     </view>
@@ -113,6 +179,7 @@
                         <outlet property="label" destination="u1p-QG-Eu4" id="gqk-tJ-maX"/>
                         <outlet property="seg" destination="pDi-J2-0T8" id="fXD-cX-JFw"/>
                         <outlet property="seg2" destination="lwx-SJ-2Vb" id="2kd-qg-0mY"/>
+                        <outlet property="seg3" destination="kaN-F8-u5R" id="PD2-A5-myg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

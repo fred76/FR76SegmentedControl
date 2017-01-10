@@ -31,14 +31,14 @@ class MySegment: UIControl {
     
     
     fileprivate var imageViews = [UIView]()
-    
+    fileprivate var borderViews = [UIView]()
     fileprivate var  shapeLayerArray = [CAShapeLayer]()
     
     fileprivate var labels = [UILabel]()
     
     public var  colorArray : [UIColor]!
     
-    public var imageToAdd: [String]!
+    public var imageToAdd: [String]! = []
     
     var labelText: [String]!
     
@@ -54,18 +54,18 @@ class MySegment: UIControl {
     
     @IBInspectable var unselectedLabelColor : UIColor = UIColor.white {
         didSet {
-            setSelectedColors()
+            
         }
     }
-    @IBInspectable var font : UIFont! = UIFont.systemFont(ofSize: 12) {
-        didSet {
-            setFont()
-        }
-    }
+    
+    @IBInspectable var fontSize : CGFloat = 22
+    
+    @IBInspectable var cornerRadious : CGFloat = 10
     
     func setSelectedColors(){
         for item in labels {
             item.textColor = unselectedLabelColor
+            
         }
         
         if labels.count > 0 {
@@ -75,13 +75,9 @@ class MySegment: UIControl {
         
     }
     
-    func setFont(){
-        for item in labels {
-            item.font = font
-        }
-    }
     
-    @IBInspectable var selectedIndex : Int = 0  
+    
+    @IBInspectable var selectedIndex : Int = 0
     
     
     @IBInspectable var borderColor : UIColor = UIColor.white {
@@ -89,11 +85,19 @@ class MySegment: UIControl {
             layer.borderColor = borderColor.cgColor
         }
     }
+    
+    @IBInspectable var segmentBorderColor : UIColor = UIColor.lightGray {
+        didSet {
+            layer.borderColor = segmentBorderColor.cgColor
+        }
+    }
     @IBInspectable var imageTopInset : CGFloat = 0
     
     @IBInspectable var imageSize : CGFloat = 0
     
     @IBInspectable var labelHeight : CGFloat = 80
+    
+    @IBInspectable var bottomInset : CGFloat = -30
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -124,6 +128,7 @@ class MySegment: UIControl {
         }
         
         labels.removeAll(keepingCapacity: true)
+        
         for index in 0...imageToAdd.count-1 {
             
             let imageView = UIImageView(frame: CGRect(
@@ -135,10 +140,29 @@ class MySegment: UIControl {
             
             imageView.backgroundColor = colorArray[index]
             imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.layer.cornerRadius = cornerRadious
+            
             
             self.addSubview(imageView)
             
             imageViews.append(imageView)
+            
+            let borderView = UIImageView(frame: CGRect(
+                x: 0,
+                y: 0,
+                width: 125,
+                height: 80))
+            
+            
+            
+            borderView.translatesAutoresizingMaskIntoConstraints = false
+            borderView.layer.cornerRadius = cornerRadious
+            borderView.layer.borderColor = segmentBorderColor.cgColor
+            borderView.layer.borderWidth = 1
+            self.addSubview(borderView)
+            
+            borderViews.append(borderView)
+            
             
             let label = UILabel(frame: CGRect(x: 0, y:0, width: 110, height: 70))
             
@@ -149,59 +173,61 @@ class MySegment: UIControl {
             label.textAlignment = .center
             label.textColor = unselectedLabelColor
             label.translatesAutoresizingMaskIntoConstraints = false
-            
+            label.font = UIFont.systemFont(ofSize: fontSize)
             self.addSubview(label)
             
             labels.append(label)
             
         }
         
-        addIndividualItemConstraintsForLabels(labels, mainView: self, padding: 5, labelHeight: labelHeight)
+        addIndividualItemConstraintsForLabels(labels, mainView: self, padding: 5, labelHeight: labelHeight, bottomInset: bottomInset)
         addIndividualItemConstraints(imageViews, mainView: self, padding: 0)
-        
+        addIndividualItemConstraints(borderViews, mainView: self, padding: 0)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         shapeLayerArray.removeAll(keepingCapacity: true)
-        
-        for index in 0...imageToAdd.count-1 {
+        if imageToAdd.count > 0 {
             
             
-            let circleLayer = CAShapeLayer()
-            let a = imageViews[index].frame.size
-            
-            let imageLayer = CALayer()
-            
-            imageLayer.backgroundColor = UIColor.clear.cgColor
-            imageLayer.bounds = CGRect(x: a.width/2, y:a.height/2 , width: imageSize  , height: imageSize )
-            imageLayer.position = CGPoint(x: a.width/2, y: imageTopInset)
-            imageLayer.contents = UIImage(named:imageToAdd[index])?.cgImage
-            
-            if index == selectedIndex {
-                
-                circleLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y:0, width: self.bounds.width  , height: self.bounds.width )).cgPath
-                circleLayer.position = CGPoint(x: a.width/2-self.bounds.width/2, y: imageTopInset-self.bounds.width/2)
+            for index in 0...imageToAdd.count-1 {
                 
                 
-            } else {
+                let circleLayer = CAShapeLayer()
+                let a = imageViews[index].frame.size
                 
-                circleLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y:0, width: imageSize  , height: imageSize )).cgPath
-                circleLayer.position = CGPoint(x: a.width/2-imageSize/2, y: imageTopInset-imageSize/2)
+                let imageLayer = CALayer()
+                
+                imageLayer.backgroundColor = UIColor.clear.cgColor
+                imageLayer.bounds = CGRect(x: a.width/2, y:a.height/2 , width: imageSize  , height: imageSize )
+                imageLayer.position = CGPoint(x: a.width/2, y: imageTopInset)
+                imageLayer.contents = UIImage(named:imageToAdd[index])?.cgImage
+                
+                if index == selectedIndex {
+                    
+                    circleLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y:0, width: self.bounds.width  , height: self.bounds.width )).cgPath
+                    circleLayer.position = CGPoint(x: a.width/2-self.bounds.width/2, y: imageTopInset-self.bounds.width/2)
+                    
+                    
+                } else {
+                    
+                    circleLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y:0, width: imageSize  , height: imageSize )).cgPath
+                    circleLayer.position = CGPoint(x: a.width/2-imageSize/2, y: imageTopInset-imageSize/2)
+                    
+                }
+                imageArray.append(imageLayer)
+                
+                shapeLayerArray.append(circleLayer)
+                
+                imageViews[index].layer.mask =  shapeLayerArray[index]
+                imageViews[index].layer.addSublayer(imageLayer)
+                
                 
             }
-            imageArray.append(imageLayer)
-            
-            shapeLayerArray.append(circleLayer)
-            
-            imageViews[index].layer.mask =  shapeLayerArray[index]
-            imageViews[index].layer.addSublayer(imageLayer)
-            
-            
+            displayNewSelectedIndex()
         }
-        displayNewSelectedIndex()
-        
     }
     
     
@@ -279,7 +305,7 @@ class MySegment: UIControl {
         let a = imageViews[index].frame.width/2
         let newCircle = UIBezierPath(arcCenter: CGPoint(x: a, y: imageTopInset), radius: self.bounds.width, startAngle: 0.0, endAngle: CGFloat(2*M_PI), clockwise: true)
         
-     
+        
         
         newCircle.append(UIBezierPath(rect: self.bounds))
         let animation = CABasicAnimation(keyPath: "path")
@@ -337,13 +363,13 @@ class MySegment: UIControl {
             mainView.addConstraints([topConstraint, bottomConstraint, rightConstraint, leftConstraint])
         }
     }
-    func addIndividualItemConstraintsForLabels(_ items: [UIView], mainView: UIView, padding: CGFloat,labelHeight : CGFloat) {
+    func addIndividualItemConstraintsForLabels(_ items: [UIView], mainView: UIView, padding: CGFloat,labelHeight : CGFloat, bottomInset : CGFloat) {
         
         for (index, button) in items.enumerated() {
             
             let topConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: labelHeight)
             
-            let bottomConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: mainView, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: mainView, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: bottomInset)
             
             var rightConstraint : NSLayoutConstraint!
             

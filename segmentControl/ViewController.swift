@@ -29,6 +29,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var seg2: MySegment!
     @IBOutlet weak var seg: MySegment!
+    @IBOutlet weak var seg3: MySegment!
+    
     @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
@@ -43,6 +45,11 @@ class ViewController: UIViewController {
         seg2.colorArray = [.red ,.blue]
         seg2.labelText = ["Oral Sospension", "Suppository"]
         seg2.setupView()
+        
+        seg3.imageToAdd = ["Oral Sospension", "Suppository"]
+        seg3.colorArray = [.red ,.blue]
+        seg3.labelText = ["Oral Sospension", "Suppository"]
+        seg3.setupView()
         
     }
     
@@ -71,6 +78,18 @@ class ViewController: UIViewController {
         case 0: label.text = seg2.labelText[seg2.selectedIndex]
         case 1: label.text = seg2.labelText[seg2.selectedIndex]
        
+            
+        default:
+            break}
+        
+        
+    }
+    
+    @IBAction func seg3Act(_ sender: MySegment) {
+        switch seg3.selectedIndex {
+        case 0: label.text = seg3.labelText[seg3.selectedIndex]
+        case 1: label.text = seg3.labelText[seg3.selectedIndex]
+            
             
         default:
             break}
